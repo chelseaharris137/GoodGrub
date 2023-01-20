@@ -1,4 +1,6 @@
+import { Layout } from '@/components/layout/Layout'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { Toaster } from 'react-hot-toast'
 import '../styles/globals.css'
 
 const queryClient = new QueryClient({
@@ -13,7 +15,20 @@ const queryClient = new QueryClient({
 export default function App({ Component, pageProps }) {
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />  
+     <Toaster
+      position="top-right"
+      toastOptions={{
+        toastOptions: {
+          style: {
+            fontSize: '12px'
+          }
+        }
+      }}
+      ></Toaster>
+
+      <Layout>
+        <Component {...pageProps} />  
+      </Layout>
     </QueryClientProvider>
   )
 }
