@@ -1,4 +1,4 @@
-import { Navbar } from "./Navbar";
+import { Footer, Navbar } from "./";
 import React, { Fragment } from "react";
 import classes from './Layout.module.scss';
 
@@ -11,7 +11,7 @@ export const Layout = ({ children }) => {
         {children}
       </div>
 
-      <h2>This is footer</h2>
+      <Footer />
     </Fragment>
   );
 };
