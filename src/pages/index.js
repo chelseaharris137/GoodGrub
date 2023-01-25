@@ -1,7 +1,5 @@
-const Home = () =>{
-  return (
-    <h1>Hello world!</h1>
-  );
-}
+import { HeroSection } from "@/components/home";
+
+const Home = () =><HeroSection />;
 
 export default Home;
