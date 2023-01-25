@@ -1,0 +1,22 @@
+.circle {
+	margin-top: 0.9rem;
+	width: 8px;
+	min-width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: var(--primary-color);
+	display: inline-block;
+}
+
+.pointText {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+	.circle {
+		margin: 0.5rem 0;
+	}
+}
