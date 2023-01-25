@@ -1,7 +1,13 @@
 import { Layout } from '@/components';
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { Toaster } from 'react-hot-toast'
-import '../styles/globals.css'
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query-devtools';
+import { Toaster } from 'react-hot-toast';
+import { getSingleMeal } from './meals/[id]';
+import { useEffect } from 'react';
+import Head from 'next/head';
+import axios from 'axios';
+import '../styles/globals.css';
+
 
 const queryClient = new QueryClient({
   defaultOptions : {
@@ -12,23 +18,46 @@ const queryClient = new QueryClient({
   }
 })
 
-export default function App({ Component, pageProps }) {
-  return (
-    <QueryClientProvider client={queryClient}>
-     <Toaster
-      position="top-right"
-      toastOptions={{
-        toastOptions: {
-          style: {
-            fontSize: '12px'
-          }
-        }
-      }}
-      ></Toaster>
+axios.defaults.baseURL = 'https://www.themealdb.com/api/json/v1/1/';
 
-      <Layout>
-        <Component {...pageProps} />  
-      </Layout>
-    </QueryClientProvider>
-  )
+const App = ({ Component, pageProps }) => {
+  useEffect(() => {
+    if (localStorage.getItem('savedMeals')) {
+      const savedMeals = JSON.parse(localStorage.getItem('savedMeals'));
+
+      savedMeals.forEach((mealId) => {
+        queryClient.prefetchQuery(['singleMeal', mealId], getSingleMeal);
+      });
+    } else {
+      localStorage.setItem('savedMeals', JSON.stringify([]));
+    }
+  }, []);
+
+  return (
+    <>
+      <Head>
+        <title>GoodGrub</title>
+        <meta name="description" content="GoodGrub is a listing of easy to make recipes" />
+      </Head>
+
+      <QueryClientProvider client={queryClient}>
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              fontSize: '1.4rem',
+            },
+          }}
+        />
+
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </>
+  );
 }
+
+export default App;
