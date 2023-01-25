@@ -6,8 +6,6 @@ const MyDocument = () =>{
     <Head>
       <link href="https://fonts.googleapis.com/css2?amily=Anton:wght@400&family=Poppins:wght@400&display=swap" 
       rel="stylesheet" />
-
-
     </Head>
 
     <body>
