@@ -6,12 +6,10 @@ import classes from './SingleMealCard.module.scss';
 
 export const SingleMealCard = ({ meal }) => {
   return (
-    <Link href={`/meals/${meal.idMeal}`}>
-      <a className={classes.item}>
-        <Image src={meal.strMealThumb} height="200" width="300" alt={meal.strMeal} />
+    <Link className={classes.item} href={`/meals/${meal.idMeal}`}>
+      <Image alt={meal.strMeal} height="200" src={meal.strMealThumb} width="290" />
 
-        <Title className={classes.title} variant="secondary">{meal.strMeal}</Title>
-      </a>
+      <Title className={classes.title} variant="secondary">{meal.strMeal}</Title>
     </Link>
   );
 }
