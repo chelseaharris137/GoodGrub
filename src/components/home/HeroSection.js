@@ -14,6 +14,8 @@ export const HeroSection = () => {
           <h1 className={classes.hero__title}>
             Find the perfect recipe
           </h1>
+          
+          <br/>
 
           <Text>A listing of easy to make recipes</Text>
 
