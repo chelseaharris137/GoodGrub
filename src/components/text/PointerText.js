@@ -1,5 +1,5 @@
+import { Text } from './';
 import React from 'react';
-import Text from './Text';
 import classes from './PointText.module.scss';
 import clsx from 'clsx';
 
