@@ -1,4 +1,4 @@
-import CategoryItem from './CategoryItem';
+import { CategoryItem } from '@/components';
 import React from 'react';
 import classes from './Categories.module.scss';
 

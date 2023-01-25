@@ -1,4 +1,4 @@
-import { About, HeroSection } from "@/components/home";
+import { About, HeroSection } from "@/components";
 import { Fragment } from "react";
 
 const Home = () =>{

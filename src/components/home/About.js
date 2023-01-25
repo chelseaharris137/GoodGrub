@@ -1,5 +1,5 @@
+import { Text, Title } from '@/components';
 import React from 'react';
-import { Text, Title } from '../text';
 import classes from './About.module.scss';
 
 export const About = () => {

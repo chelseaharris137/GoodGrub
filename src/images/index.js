@@ -1,2 +1,2 @@
 export * as HeroImg from './hero_img.jpg';
-export * as logo from './logo.png';
+export * as Logo from './logo.png';

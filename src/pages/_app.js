@@ -1,4 +1,4 @@
-import { Layout } from '@/components/layout/Layout'
+import { Layout } from '@/components';
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'react-hot-toast'
 import '../styles/globals.css'

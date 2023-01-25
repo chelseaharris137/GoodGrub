@@ -1,7 +1,7 @@
+import { Title } from '@/components';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import Title from '../text';
 import classes from './SingleMealCard.module.scss';
 
 export const SingleMealCard = ({ meal }) => {
