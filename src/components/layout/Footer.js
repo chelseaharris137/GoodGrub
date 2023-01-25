@@ -1,4 +1,4 @@
-import { Text } from '../text';
+import { Text } from '@/components';
 import React from 'react';
 import classes from './Footer.module.scss';
 

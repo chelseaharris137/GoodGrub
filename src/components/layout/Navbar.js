@@ -1,4 +1,4 @@
-import { logo } from '../../images';
+import { Logo } from '@/images';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -8,7 +8,7 @@ export const Navbar = () => {
   return (
     <nav className={classes.navbar}>
       <Link href="/" className={classes.logo}>
-          <Image src={logo} alt="GoodGrub" />
+          <Image src={Logo} alt="GoodGrub" />
       </Link>
 
       <ul className={classes.navLinks}>

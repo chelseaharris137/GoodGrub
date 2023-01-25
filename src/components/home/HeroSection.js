@@ -1,6 +1,5 @@
-import { HeroImg } from '../../images';
-import { LinkedButton } from '../buttons';
-import { Text } from '../text';
+import { HeroImg } from '@/images';
+import { LinkedButton, Text } from '@/components';
 import Image from 'next/image';
 import React from 'react';
 import classes from './HeroSection.module.scss';

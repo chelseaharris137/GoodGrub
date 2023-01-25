@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Text, Title } from '../text';
+import { Text, Title } from '@/components';
 import classes from './IngredientsTable.module.scss';
 
 export const IngredientsTable = ({ ingredientsWithMeasures }) => {
