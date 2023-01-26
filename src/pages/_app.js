@@ -1,13 +1,13 @@
 import { Layout } from '@/components';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query-devtools';
+// Uncomment below to troubleshoot queries
+// import { ReactQueryDevtools } from 'react-query-devtools';
 import { Toaster } from 'react-hot-toast';
 import { getSingleMeal } from './meals/[id]';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import '../styles/globals.css';
-
 
 const queryClient = new QueryClient({
   defaultOptions : {
@@ -54,7 +54,8 @@ const App = ({ Component, pageProps }) => {
           <Component {...pageProps} />
         </Layout>
 
-        <ReactQueryDevtools initialIsOpen={false} />
+        {/* Uncomment below to troubleshoot queries */}
+        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       </QueryClientProvider>
     </>
   );
