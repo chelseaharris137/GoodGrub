@@ -1,6 +1,6 @@
 import { BeatLoader } from 'react-spinners';
 import { Button, IngredientsTable, PointText, Text, Title } from '@/components';
-import { FaHeartBroken, FaHeart } from 'react-icons';
+import { FaHeartBroken, FaHeart } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -9,13 +9,13 @@ import axios from 'axios';
 import classes from './meals.module.scss';
 import toast from 'react-hot-toast';
 
-const getSingleMeal = async ({ queryKey }) => {
+export const getSingleMeal = async ({ queryKey }) => {
   const { data } = await axios.get(`/lookup.php?i=${queryKey[1]}`);
 
   return data?.meals?.[0];
 };
 
-export const SingleMeals = () => {
+export default function SingleMeals() {
   const [isSaved, setIsSaved] = React.useState(false);
   const router = useRouter();
 
@@ -81,7 +81,7 @@ export const SingleMeals = () => {
     <div className={classes.pageWrapper}>
       <div className={classes.topContainer}>
         <div className={classes.img}>
-          <Image alt={data.strMeal} height={300} src={data.strMealThumb} width={300}  />
+          <Image alt={data.strMeal} height={300} src={data.strMealThumb} style={{borderRadius: '6px'}} width={300} />
         </div>
 
         <div className={classes.info}>
@@ -112,9 +112,7 @@ export const SingleMeals = () => {
               </>
             ) : (
               <>
-                <FaHeart className={classes.saveIcon} />
-
-                save
+                <FaHeart className={classes.saveIcon} />&nbsp;save
               </>
             )}
           </Button>
@@ -135,5 +133,3 @@ export const SingleMeals = () => {
     </div>
   );
 }
-
-export default SingleMeals;
