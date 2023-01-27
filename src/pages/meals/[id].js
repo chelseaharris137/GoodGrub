@@ -100,15 +100,13 @@ export default function SingleMeals() {
           </PointText>
 
           {isSaved && (
-            <Text className={classes.greenText}>You already saved the meal.</Text>
+            <Text className={classes.greenText}>You saved the meal!</Text>
           )}
 
           <Button className={classes.saveButton} onClickHandler={handleSaveButtonClick} variant="primary">
             {isSaved ? (
               <>
-                <FaHeartBroken />
-
-                Remove
+                <FaHeartBroken />&nbsp;Remove
               </>
             ) : (
               <>
