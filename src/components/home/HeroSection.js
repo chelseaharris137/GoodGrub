@@ -26,7 +26,7 @@ export const HeroSection = () => {
         </div>
 
         <div className={classes.hero__img}>
-          <Image src={HeroImg} alt="Image of woman in a kitchen slicing tomatoes on a cutting board." width={400} />
+          <Image src={HeroImg} alt="Image of woman in a kitchen slicing tomatoes on a cutting board." style={{ borderRadius: '6px' }} width={400} />
         </div>
       </div>
     </section>
