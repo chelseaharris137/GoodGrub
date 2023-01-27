@@ -1,17 +1,17 @@
-import { Footer, Navbar } from "@/components";
-import React, { Fragment } from "react";
+import { Footer } from './Footer';
+import { Navbar } from './Navbar';
 import classes from './Layout.module.scss';
 
 export const Layout = ({ children }) => {
   return (
-    <Fragment>
+    <>
       <div className={classes.container}>
         <Navbar />
-  
+
         {children}
       </div>
 
       <Footer />
-    </Fragment>
+    </>
   );
 };

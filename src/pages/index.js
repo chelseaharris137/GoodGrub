@@ -1,13 +1,12 @@
-import { About, HeroSection } from "@/components";
-import { Fragment } from "react";
+import { About, HeroSection } from '@/components';
 
-const Home = () =>{
+const Home = () => {
   return (
-    <Fragment>
+    <>
       <HeroSection />
 
       <About />
-    </Fragment>
+    </>
   );
 };
 

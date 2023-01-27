@@ -1,17 +1,24 @@
 import React from 'react';
-import classes from './Button.module.scss';
 import clsx from 'clsx';
+import classes from './Button.module.scss';
 
 export const Button = ({
-  children, className, onClickHandler, variant = 'secondary'
+  children,
+  className,
+  onClickHandler,
+  variant = 'secondary',
 }) => {
   return (
     <button
-      type="button"
-      className={clsx(classes.button, classes[`variant__${variant}`], className)}
+      className={clsx(
+        classes.button,
+        classes[`variant__${variant}`],
+        className
+      )}
       onClick={onClickHandler}
+      type='button'
     >
       {children}
     </button>
   );
-}
+};
