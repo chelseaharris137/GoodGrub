@@ -1,9 +1,12 @@
 .footer {
 	background-color: var(--secondary-color);
-	text-align: center;
+	bottom: 0;
 	padding: 3rem 0rem;
+	position: fixed;
+	text-align: center;
+	width: 100%;
 }
 .copyright {
-	margin-top: 1.2rem;
 	font-size: 1.2rem;
+	margin-top: 1.2rem;
 }
