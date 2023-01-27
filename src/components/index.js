@@ -13,4 +13,3 @@ export * from './mealsPage/SingleMealCard';
 export * from './text/PointerText';
 export * from './text/Text';
 export * from './text/Title';
-

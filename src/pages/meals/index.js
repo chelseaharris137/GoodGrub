@@ -1,5 +1,11 @@
 import { BeatLoader } from 'react-spinners';
-import { Categories, PointText, SearchBar, SingleMealCard, Text } from '@/components';
+import {
+  Categories,
+  PointText,
+  SearchBar,
+  SingleMealCard,
+  Text,
+} from '@/components';
 import { useQuery } from 'react-query';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -34,20 +40,27 @@ const Meals = () => {
   const [query, setQuery] = useState('');
 
   const {
-    data: categories, isLoading: categoryIsLoading, isError: categoryIsError, error: categoryError,
+    data: categories,
+    isLoading: categoryIsLoading,
+    isError: categoryIsError,
+    error: categoryError,
   } = useQuery(['catagories'], getCategories);
 
   const {
-    data: queriedData, isLoading: queryIsLoading, isError: queryError,
+    data: queriedData,
+    isLoading: queryIsLoading,
+    isError: queryError,
   } = useQuery(['mealsByQuery', query], getQueriedMeals, {
     enabled: query !== '',
   });
 
-  const {
-    data, isLoading, isError,
-  } = useQuery(['mealsByCategory', selectedCategory], getMeals, {
-    enabled: query === '',
-  });
+  const { data, isLoading, isError } = useQuery(
+    ['mealsByCategory', selectedCategory],
+    getMeals,
+    {
+      enabled: query === '',
+    }
+  );
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -79,7 +92,9 @@ const Meals = () => {
     <div className={classes.meals__page}>
       <SearchBar searchText={searchText} setSearchText={setSearchText} />
 
-      <PointText className={classes.text}>search meals or select categories from below.</PointText>
+      <PointText className={classes.text}>
+        search meals or select categories from below.
+      </PointText>
 
       <Categories
         categories={categories}
@@ -93,27 +108,35 @@ const Meals = () => {
 
       {isLoading || categoryIsLoading ? (
         <div className={classes.loadingSpinner}>
-          <BeatLoader color="#fff" cssOverride={override} loading={isLoading || categoryIsLoading} size={20} />
+          <BeatLoader
+            color='#fff'
+            cssOverride={override}
+            loading={isLoading || categoryIsLoading}
+            size={20}
+          />
         </div>
       ) : null}
 
       <div className={classes.meals__container}>
-        { !isLoading && !isError
-        && data && data.map((meal) => (
-          <SingleMealCard key={meal.idMeal} meal={meal} />
-        ))}
+        {!isLoading &&
+          !isError &&
+          data &&
+          data.map((meal) => <SingleMealCard key={meal.idMeal} meal={meal} />)}
 
-        { !queryIsLoading && !queryError
-        && queriedData && queriedData.map((meal) => (
-          <SingleMealCard key={meal.idMeal} meal={meal} />
-        ))}
+        {!queryIsLoading &&
+          !queryError &&
+          queriedData &&
+          queriedData.map((meal) => (
+            <SingleMealCard key={meal.idMeal} meal={meal} />
+          ))}
 
-        {data && queriedData && data.length === 0 && queriedData.length === 0 && (
-          <Text>No meals found</Text>
-        )}
+        {data &&
+          queriedData &&
+          data.length === 0 &&
+          queriedData.length === 0 && <Text>No meals found</Text>}
       </div>
     </div>
   );
-}
+};
 
 export default Meals;
