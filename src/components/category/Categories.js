@@ -1,5 +1,5 @@
-import { CategoryItem } from '@/components';
 import React from 'react';
+import { CategoryItem } from './CategoryItem';
 import classes from './Categories.module.scss';
 
 export const Categories = ({
@@ -39,4 +39,4 @@ export const Categories = ({
       ))}
     </div>
   );
-}
+};

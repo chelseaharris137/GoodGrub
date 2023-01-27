@@ -6,8 +6,8 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import classes from './meals.module.scss';
 import toast from 'react-hot-toast';
+import classes from './meals.module.scss';
 
 export const getSingleMeal = async ({ queryKey }) => {
   const { data } = await axios.get(`/lookup.php?i=${queryKey[1]}`);
@@ -15,13 +15,16 @@ export const getSingleMeal = async ({ queryKey }) => {
   return data?.meals?.[0];
 };
 
-export default function SingleMeals() {
+export const SingleMeals = () => {
   const [isSaved, setIsSaved] = React.useState(false);
   const router = useRouter();
 
   const { id } = router.query;
 
-  const { data, isLoading, isError } = useQuery(['singleMeal', id], getSingleMeal);
+  const { data, isLoading, isError } = useQuery(
+    ['singleMeal', id],
+    getSingleMeal
+  );
 
   useEffect(() => {
     if (localStorage.getItem('savedMeals')) {
@@ -42,12 +45,12 @@ export default function SingleMeals() {
   }
 
   if (isLoading || !data) {
-    return (
-      <BeatLoader color="#fff" size={20} />
-    );
+    return <BeatLoader color='#fff' size={20} />;
   }
 
-  const ingredients = Object.keys(data).filter((key) => key.startsWith('strIngredient')).filter((key) => data[key] !== '' && data[key] !== null);
+  const ingredients = Object.keys(data)
+    .filter((key) => key.startsWith('strIngredient'))
+    .filter((key) => data[key] !== '' && data[key] !== null);
 
   const ingredientsWithMeasures = ingredients.map((key, index) => ({
     index: index + 1,
@@ -81,11 +84,17 @@ export default function SingleMeals() {
     <div className={classes.pageWrapper}>
       <div className={classes.topContainer}>
         <div className={classes.img}>
-          <Image alt={data.strMeal} height={300} src={data.strMealThumb} style={{borderRadius: '6px'}} width={300} />
+          <Image
+            alt={data.strMeal}
+            height={300}
+            src={data.strMealThumb}
+            style={{ borderRadius: '6px' }}
+            width={300}
+          />
         </div>
 
         <div className={classes.info}>
-          <Title variant="primary">{data.strMeal}</Title>
+          <Title variant='primary'>{data.strMeal}</Title>
 
           <PointText className={classes.infoText}>
             Category: {data.strCategory}
@@ -103,14 +112,20 @@ export default function SingleMeals() {
             <Text className={classes.greenText}>You saved the meal!</Text>
           )}
 
-          <Button className={classes.saveButton} onClickHandler={handleSaveButtonClick} variant="primary">
+          <Button
+            className={classes.saveButton}
+            onClickHandler={handleSaveButtonClick}
+            variant='primary'
+          >
             {isSaved ? (
               <>
-                <FaHeartBroken />&nbsp;Remove
+                <FaHeartBroken />
+                &nbsp;Remove
               </>
             ) : (
               <>
-                <FaHeart className={classes.saveIcon} />&nbsp;save
+                <FaHeart className={classes.saveIcon} />
+                &nbsp;save
               </>
             )}
           </Button>
@@ -124,10 +139,13 @@ export default function SingleMeals() {
       <div className={classes.instructions}>
         <Title>Instructions</Title>
 
-        {data.strInstructions.split('.').filter((sentence) => sentence !== '').map((sentence) => (
-          <PointText key={sentence}>{sentence}.</PointText>
-        ))}
+        {data.strInstructions
+          .split('.')
+          .filter((sentence) => sentence !== '')
+          .map((sentence) => (
+            <PointText key={sentence}>{sentence}</PointText>
+          ))}
       </div>
     </div>
   );
-}
+};
