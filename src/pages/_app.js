@@ -3,10 +3,10 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 // Uncomment below to troubleshoot queries
 // import { ReactQueryDevtools } from 'react-query-devtools';
 import { Toaster } from 'react-hot-toast';
+import { getSingleMeal } from '@/utils';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
-import { getSingleMeal } from './meals/[id]';
 import '../styles/globals.css';
 
 const queryClient = new QueryClient({

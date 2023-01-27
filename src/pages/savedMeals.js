@@ -1,9 +1,9 @@
 import { BeatLoader } from 'react-spinners';
 import { PointText, Text, Title } from '@/components';
+import { getSingleMeal } from '@/utils';
 import { useQueries } from 'react-query';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { getSingleMeal } from './meals/[id]';
 import classes from './savedMeals.module.scss';
 
 const SavedMeals = () => {
