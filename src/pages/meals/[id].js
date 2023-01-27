@@ -1,19 +1,13 @@
 import { BeatLoader } from 'react-spinners';
 import { Button, IngredientsTable, PointText, Text, Title } from '@/components';
 import { FaHeartBroken, FaHeart } from 'react-icons/fa';
+import { getSingleMeal } from '@/utils';
 import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import React, { useEffect } from 'react';
-import axios from 'axios';
 import toast from 'react-hot-toast';
 import classes from './meals.module.scss';
-
-export const getSingleMeal = async ({ queryKey }) => {
-  const { data } = await axios.get(`/lookup.php?i=${queryKey[1]}`);
-
-  return data?.meals?.[0];
-};
 
 const SingleMeals = () => {
   const [isSaved, setIsSaved] = React.useState(false);

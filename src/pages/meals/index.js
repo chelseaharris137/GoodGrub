@@ -9,19 +9,8 @@ import {
 import { useQuery } from 'react-query';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { getCategories, getMeals } from '@/utils';
 import classes from './meals.module.scss';
-
-const getCategories = async () => {
-  const { data } = await axios.get('/categories.php');
-
-  return data.categories;
-};
-
-const getMeals = async ({ queryKey }) => {
-  const { data } = await axios.get(`filter.php?c=${queryKey[1]}`);
-
-  return data?.meals || [];
-};
 
 const getQueriedMeals = async ({ queryKey }) => {
   const { data } = await axios.get(`search.php?s=${queryKey[1]}`);
