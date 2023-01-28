@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 // import { ReactQueryDevtools } from 'react-query-devtools';
 import { Toaster } from 'react-hot-toast';
 import { getSingleMeal } from '@/utils';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import '../styles/globals.css';
