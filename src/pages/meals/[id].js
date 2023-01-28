@@ -15,7 +15,7 @@ export const getSingleMeal = async ({ queryKey }) => {
   return data?.meals?.[0];
 };
 
-export const SingleMeals = () => {
+const SingleMeals = () => {
   const [isSaved, setIsSaved] = React.useState(false);
   const router = useRouter();
 
@@ -149,3 +149,5 @@ export const SingleMeals = () => {
     </div>
   );
 };
+
+export default SingleMeals;
