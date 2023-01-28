@@ -10,6 +10,6 @@ export * from './layout/Navbar';
 export * from './mealsPage/IngredientsTable';
 export * from './mealsPage/SearchBar';
 export * from './mealsPage/SingleMealCard';
-export * from './text/PointerText';
+export * from './text/PointText';
 export * from './text/Text';
 export * from './text/Title';

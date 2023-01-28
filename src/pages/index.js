@@ -1,4 +1,5 @@
 import { About, HeroSection } from '@/components';
+import React from 'react';
 
 const Home = () => {
   return (
