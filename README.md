@@ -1,8 +1,13 @@
+<a name="readme-top"></a>
+
 <!-- PROJECT SHIELDS -->
+<div align="center">
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+</div>
 
 <!-- PROJECT LOGO -->
 <br />
@@ -27,7 +32,11 @@
   market. So why wait? Download GoodGrub now and start cooking up a storm!
   <br />
   <br />
+  <br />
+  <br />
+  <p align="center">
   <img src="public/gg_screenshot.png" alt="GoodGrub Screenshot" width="500" >
+  </p>
 
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
   <br />
@@ -108,8 +117,6 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-<br />
-<br />
 
 <!-- LICENSE -->
 ## License
@@ -117,8 +124,6 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-<br />
-<br />
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
