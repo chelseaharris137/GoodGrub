@@ -18,8 +18,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-  <br />
-  <br />
+
   GoodGrub features a wide variety of recipes, from classic comfort foods
   to international dishes and healthy options. We make it easy to find the
   perfect recipe for any occasion, with options sorted by cuisine,
